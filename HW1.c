@@ -20,7 +20,6 @@ struct
 {
  char *ext;
  char *filetype;
-
 }
 
 extensions [] =
@@ -38,7 +37,8 @@ extensions [] =
  {0,0}
 };
 
-void load (char buffer[BUFSIZ+1],int fd,int ret)   {
+void load (char buffer[BUFSIZ+1],int fd,int ret)
+{
     char *tmp = strstr (buffer,"filename");
     if (tmp == 0 ) return;
     char filename[BUFSIZ+1],data[BUFSIZ+1],location[BUFSIZ+1];
@@ -81,7 +81,6 @@ void load (char buffer[BUFSIZ+1],int fd,int ret)   {
         last_write = write(download,buffer,ret - 61);
         memcpy (t,buffer+last_write,61);
         last_ret = ret;
-        //printf ("ret:%d\n",ret);
         if (total>=filesize-1)
             break;
     }
